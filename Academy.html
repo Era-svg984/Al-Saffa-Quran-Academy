@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL-SAFFAH QURAN ACADEMY</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark-green: #03201A;
+            --bg-darker-green: #011410;
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --cream-bg: #FAF6EE;
+            --white: #FFFFFF;
+            --text-dark: #1C2826;
+            --card-bg: #F4EFE6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--cream-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Top Header Banner */
+        .header-banner {
+            background-color: var(--bg-dark-green);
+            color: var(--gold-primary);
+            text-align: center;
+            padding: 25px 20px;
+            border-bottom: 4px solid var(--gold-primary);
+            position: relative;
+        }
+
+        .header-banner h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+        }
+
+        .header-banner .tagline {
+            font-size: 1.1rem;
+            color: var(--gold-light);
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        .sub-header-pill {
+            background-color: var(--bg-darker-green);
+            color: var(--white);
+            display: inline-block;
+            padding: 6px 25px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 12px;
+            border: 1px solid var(--gold-primary);
+        }
+
+        /* Navigation Bar (Page Selector) */
+        nav {
+            background-color: var(--bg-darker-green);
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        nav button {
+            background: transparent;
+            color: var(--gold-light);
+            border: 1px solid var(--gold-primary);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        nav button:hover, nav button.active {
+            background-color: var(--gold-primary);
+            color: var(--bg-dark-green);
+        }
+
+        /* Page Content Control */
+        .page-content {
+            display: none;
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* Page 1: Home Layout */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .hero-box-left {
+            background-color: var(--bg-dark-green);
+            color: var(--white);
+            padding: 35px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid var(--gold-primary);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-box-left h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--gold-primary);
+            line-height: 1.2;
+        }
+
+        .hero-box-left p {
+            margin: 15px 0;
+            font-size: 1.1rem;
+        }
+
+        .hadith-quote {
+            border: 1px dashed var(--gold-primary);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            background: rgba(212, 175, 55, 0.08);
+            font-style: italic;
+        }
+
+        .why-choose-box {
+            background-color: var(--card-bg);
+            border: 2px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .why-choose-box h3 {
+            background-color: var(--bg-dark-green);
+            color: var(--gold-primary);
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        .feature-item i {
+            background-color: var(--bg-dark-green);
+            color: var(--gold-primary);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.1rem;
+        }
+
+        .feature-item div h4 {
+            font-size: 1rem;
+            color: var(--bg-dark-green);
+        }
+
+        .feature-item div p {
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        /* Banner Middle Ribbon */
+        .ribbon-heading {
+            background-color: var(--bg-dark-green);
+            color: var(--gold-primary);
+            text-align: center;
+            padding: 12px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            margin: 30px 0 20px;
+            border-left: 5px solid var(--gold-primary);
+            border-right: 5px solid var(--gold-primary);
+        }
+
+        /* Course Cards Grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+        }
+
+        .course-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--gold-primary);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .course-card h4 {
+            background-color: var(--white);
+            color: var(--bg-dark-green);
+            padding: 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            border: 1px solid var(--gold-primary);
+        }
+
+        .course-card i {
+            font-size: 2rem;
+            color: var(--bg-dark-green);
+            margin: 10px 0;
+        }
+
+        .course-card p {
+            font-size: 0.78rem;
+            color: #444;
+        }
+
+        /* Features & Platform Banner */
+        .bottom-banner-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .box-dark {
+            background-color: var(--bg-dark-green);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--gold-primary);
+        }
+
+        .box-dark h3 {
+            color: var(--gold-primary);
+            margin-bottom: 10px;
+        }
+
+        .platform-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .platform-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.3rem;
+            text-decoration: none;
+        }
+
+        .zoom-bg { background-color: #2D8CFF; }
+        .skype-bg { background-color: #00AFF0; }
+        .whatsapp-bg { background-color: #25D366; }
+
+        .trial-btn {
+            background-color: var(--gold-primary);
+            color: var(--bg-dark-green);
+            display: block;
+            padding: 10px;
+            font-weight: 700;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        /* Payment Box Section */
+        .payment-box {
+            background: var(--white);
+            border: 2px solid var(--gold-primary);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .payment-box h3 {
+            color: var(--bg-dark-green);
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--gold-primary);
+            padding-bottom: 5px;
+        }
+
+        /* Form Styles */
+        .form-container {
+            background-color: var(--white);
+            border: 2px solid var(--gold-primary);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--bg-dark-green);
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            background-color: var(--bg-dark-green);
+            color: var(--gold-primary);
+            border: 1px solid var(--gold-primary);
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--gold-primary);
+            color: var(--bg-dark-green);
+        }
+
+        /* ID Card Result */
+        .id-card {
+            display: none;
+            background: var(--bg-dark-green);
+            color: var(--white);
+            border: 2px solid var(--gold-primary);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .id-card h3 {
+            color: var(--gold-primary);
+        }
+
+        .id-number {
+            font-size: 1.8rem;
+            color: var(--gold-light);
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin: 10px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-darker-green);
+            color: var(--white);
+            text-align: center;
+            padding: 25px 20px;
+            border-top: 3px solid var(--gold-primary);
+            margin-top: 40px;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            color: var(--gold-light);
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid, .bottom-banner-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-banner h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section (Matching Flyer Style) -->
+    <div class="header-banner">
+        <h1>AL-SAFFAH</h1>
+        <div class="header-banner h1" style="font-size: 2rem; border: none; padding: 0;">QURAN ACADEMY</div>
+        <div class="tagline">Learn Quran, Live Quran</div>
+        <div><span class="sub-header-pill">ONLINE QURAN CLASSES FOR ALL AGES</span></div>
+    </div>
+
+    <!-- Navigation Bar (Dynamic Tab System) -->
+    <nav>
+        <button class="active" onclick="switchPage('home', this)">Page 1: Introduction</button>
+        <button onclick="switchPage('courses', this)">Page 2: Lessons & Syllabus</button>
+        <button onclick="switchPage('contact', this)">Page 3: Contact & Fees</button>
+        <button onclick="switchPage('register', this)">Page 4: Student Registration</button>
+    </nav>
+
+    <!-- PAGE 1: INTRODUCTION -->
+    <div id="home" class="page-content active">
+        <div class="hero-grid">
+            <!-- Left Hero Box -->
+            <div class="hero-box-left">
+                <h2>QURAN IS EASY TO LEARN!</h2>
+                <p>Take the first step today, a lifetime change will begin.</p>
+                <div class="hadith-quote">
+                    "The best among you are those who learn the Quran and teach it."
+                    <br><small>(Sahih Bukhari)</small>
+                </div>
+            </div>
+
+            <!-- Right Why Choose Box -->
+            <div class="why-choose-box">
+                <h3>WHY CHOOSE AL-SAFFAH QURAN ACADEMY?</h3>
+                
+                <div class="feature-item">
+                    <i class="fas fa-laptop-house"></i>
+                    <div>
+                        <h4>Online Classes</h4>
+                        <p>Learn from the comfort of your home worldwide.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <div>
+                        <h4>Experienced Teachers</h4>
+                        <p>Hafiz-e-Quran & Qualified dedicated Quran teachers.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-user-clock"></i>
+                    <div>
+                        <h4>One to One Classes</h4>
+                        <p>Personalized attention & flexible timings for better learning.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-file-alt"></i>
+                    <div>
+                        <h4>Regular Tests & Reports</h4>
+                        <p>Track student progress with regular evaluations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Platform Banner -->
+        <div class="bottom-banner-grid">
+            <div class="box-dark">
+                <h3>It's Never Too Late!</h3>
+                <p style="font-size: 0.85rem;">Start your Quran journey today for a better life in this world and the hereafter.</p>
+            </div>
+
+            <div class="box-dark">
+                <h3>WE PROVIDE CLASSES ON</h3>
+                <div class="platform-icons">
+                    <span class="platform-icon zoom-bg"><i class="fas fa-video"></i></span>
+                    <span class="platform-icon skype-bg"><i class="fab fa-skype"></i></span>
+                    <span class="platform-icon whatsapp-bg"><i class="fab fa-whatsapp"></i></span>
+                </div>
+                <a href="https://wa.me/923351404284?text=Assalam%20o%20Alaikum,%20I%20want%20to%20book%20a%203%20Days%20Free%20Trial" target="_blank" class="trial-btn">BOOK YOUR 3 DAYS FREE TRIAL!</a>
+            </div>
+
+            <div class="box-dark" style="font-size: 0.85rem;">
+                <p><i>"Indeed, this Quran guides to that which is most just and right..."</i></p>
+                <small>(Surah Al-Isra: 17:9)</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: LESSONS / COURSES -->
+    <div id="courses" class="page-content">
+        <div class="ribbon-heading">OUR COURSES & SYLLABUS</div>
+        <div class="courses-grid">
+            
+            <div class="course-card">
+                <h4>Noorani Qaida</h4>
+                <i class="fas fa-book-open"></i>
+                <p>Start learning Arabic alphabets and basic pronunciation rules.</p>
+            </div>
+
+            <div class="course-card">
+                <h4>Nazra Quran (Reading)</h4>
+                <i class="fas fa-quran"></i>
+                <p>Learn to read the Quran fluently with correct pronunciation.</p>
+            </div>
+
+            <div class="course-card">
+                <h4>Hifz-ul-Quran (Memorization)</h4>
+                <i class="fas fa-brain"></i>
+                <p>Memorize Quran with effective and proven methods.</p>
+            </div>
+
+            <div class="course-card">
+                <h4>Tajweed (Pronunciation)</h4>
+                <i class="fas fa-microphone-lines"></i>
+                <p>Learn Quran with proper Tajweed rules and beautiful recitation.</p>
+            </div>
+
+            <div class="course-card">
+                <h4>Translation & Tafseer</h4>
+                <i class="fas fa-book-quran"></i>
+                <p>Understand the meanings and messages of Quran.</p>
+            </div>
+
+            <div class="course-card">
+                <h4>Dua's & Daily Supplications</h4>
+                <i class="fas fa-hands-praying"></i>
+                <p>Learn authentic Dua's for everyday life, Namaz & 6 Kalmas.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PAGE 3: CONTACT & FEE PAYMENT -->
+    <div id="contact" class="page-content">
+        <div class="ribbon-heading">CONTACT & PAYMENT SYSTEM</div>
+        
+        <div class="payment-box">
+            <h3>Fee Structure & Payment Methods</h3>
+            <p>We keep our monthly fees affordable so every student across the globe can learn. You can make payments easily using the following channels:</p>
+            <br>
+            <p><strong>Mobile Wallet:</strong> JazzCash / Easypaisa (0335-1404284)</p>
+            <p><strong>Bank Account:</strong> Direct Bank Transfer (Details available on inquiry)</p>
+            <p><strong>International Students:</strong> Wise, MoneyGram, or Western Union</p>
+        </div>
+
+        <div class="payment-box" style="text-align: center;">
+            <h3>Contact Directly 24/7</h3>
+            <p>Reach out to the teacher anytime on WhatsApp or social channels:</p>
+            <br>
+            <a href="https://wa.me/923351404284" class="trial-btn" style="display: inline-block; padding: 10px 30px;" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp (+92 335 1404284)</a>
+        </div>
+    </div>
+
+    <!-- PAGE 4: STUDENT REGISTRATION -->
+    <div id="register" class="page-content">
+        <div class="ribbon-heading">STUDENT ADMISSION FORM</div>
+        <div class="form-container">
+            <form id="registrationForm" onsubmit="handleRegistration(event)">
+                
+                <h3 style="color: var(--bg-dark-green); margin-bottom: 15px;">Parent Information</h3>
+                <div class="form-group">
+                    <label>Parent / Guardian Name *</label>
+                    <input type="text" id="parentName" required placeholder="Enter parent's name">
+                </div>
+
+                <div class="form-group">
+                    <label>WhatsApp / Phone Number *</label>
+                    <input type="tel" id="parentPhone" required placeholder="+92 300 0000000">
+                </div>
+
+                <h3 style="color: var(--bg-dark-green); margin: 20px 0 15px;">Student Information</h3>
+                <div class="form-group">
+                    <label>Student Full Name *</label>
+                    <input type="text" id="studentName" required placeholder="Enter student's name">
+                </div>
+
+                <div class="form-group">
+                    <label>Select Course *</label>
+                    <select id="selectedCourse" required>
+                        <option value="Noorani Qaida">Noorani Qaida</option>
+                        <option value="Nazra Quran">Nazra Quran (Reading)</option>
+                        <option value="Hifz-ul-Quran">Hifz-ul-Quran (Memorization)</option>
+                        <option value="Tajweed Course">Tajweed (Pronunciation)</option>
+                        <option value="Translation & Tafseer">Translation & Tafseer</option>
+                        <option value="Duas & Kalmas">Dua's & Daily Supplications</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">REGISTER STUDENT</button>
+            </form>
+
+            <!-- Generated Student ID Card -->
+            <div id="idCardResult" class="id-card">
+                <h3>Registration Successful!</h3>
+                <p>Assigned Student ID Number:</p>
+                <div class="id-number" id="assignedID">ASQA-0000</div>
+                <p id="studentDetailsText" style="font-size: 0.9rem; margin-bottom: 15px;"></p>
+                <a id="whatsappShareBtn" href="#" target="_blank" class="trial-btn">Send ID to Teacher on WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-contact">
+            <span><i class="fas fa-phone"></i> +92 335 1404284</span>
+            <span><i class="fas fa-user"></i> Qari M Shazaib</span>
+            <span><i class="fas fa-envelope"></i> info@alsaffahquranacademy.com</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--gold-primary);">Learn Quran Today, Lead a Better Tomorrow</p>
+    </footer>
+
+    <!-- JavaScript Navigation and Registration Code -->
+    <script>
+        function switchPage(pageId, buttonElement) {
+            // Hide all page contents
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Remove active style from all buttons
+            const buttons = document.querySelectorAll('nav button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Mark button as active
+            buttonElement.classList.add('active');
+        }
+
+        function handleRegistration(event) {
+            event.preventDefault();
+
+            const parentName = document.getElementById('parentName').value;
+            const parentPhone = document.getElementById('parentPhone').value;
+            const studentName = document.getElementById('studentName').value;
+            const selectedCourse = document.getElementById('selectedCourse').value;
+
+            // Generate Unique ID
+            const randomID = "ASQA-" + Math.floor(1000 + Math.random() * 9000);
+
+            // Update UI
+            document.getElementById('assignedID').innerText = randomID;
+            document.getElementById('studentDetailsText').innerText = `Student: ${studentName} | Parent: ${parentName} | Course: ${selectedCourse}`;
+            
+            // Generate WhatsApp Link
+            const message = `Assalam o Alaikum, I registered my child on the website.%0A%0A*Student ID:* ${randomID}%0A*Student Name:* ${studentName}%0A*Parent Name:* ${parentName}%0A*Course:* ${selectedCourse}`;
+            document.getElementById('whatsappShareBtn').href = `https://wa.me/923351404284?text=${message}`;
+
+            // Show ID Card
+            document.getElementById('idCardResult').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
